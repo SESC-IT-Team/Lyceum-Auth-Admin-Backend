@@ -1,0 +1,16 @@
+[project]
+name = "lyceum-auth-admin-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.15.0",
+    "sesc-auth-sdk>=2.0.5",
+    "uvicorn>=0.52.3",
+]
+
+[tool.uv.sources]
+sesc-auth-sdk = { git = "https://github.com/SESC-IT-Team/Lyceum-Auth-SDK.git" }
