@@ -6,5 +6,6 @@ class Settings(BaseSettings):
     token_validation_settings: TokenValidationSettings = TokenValidationSettings(_env_file=".env")
     auth_router_settings: AuthRouterSettings = AuthRouterSettings(_env_file=".env")
     user_service_url: str
+    root_path: str
 
 settings = Settings()
