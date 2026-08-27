@@ -1,3 +1,6 @@
+import os
+import ssl
+
 from sesc_auth_sdk.dependencies import (
     LyceumAuth,
     create_jwks_manager_dependency,
@@ -17,5 +20,10 @@ class Auth(LyceumAuth):
     )
 
 async def get_session():
-    async with aiohttp.ClientSession() as session:
+    ssl_context = ssl.create_default_context(
+        cafile=os.getenv("SSL_CERT_FILE")
+    )
+    connector = aiohttp.TCPConnector(ssl=ssl_context)
+
+    async with aiohttp.ClientSession(connector=connector) as session:
         yield session
